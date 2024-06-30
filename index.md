@@ -2,7 +2,7 @@ Welcome to my course notes 📝 where you will find a detailed summaries and exp
 
 🎯Outlines
 1. [Introduction](./Course_Material/Introduction.md)
-2. [Chapter 1 : introduction to llm 🤖](./Course_Material/Chapter1.md)
+2. [Chapter 1 : Introduction to LLM  🤖](./Course_Material/Chapter1.md)
 3. [Chapter 2 : OCI Gen service ⭕](./Course_Material/Chapter2.md)
 4. [Chapter 3 : building block of an llm application 🛠️](./Course_Material/Chapter3.md)
 5. [Chapter 4 : build an llm application📌](./Course_Material/Chapter4.md)

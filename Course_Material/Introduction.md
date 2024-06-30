@@ -25,3 +25,5 @@ Throughout the course, you will find detailed explanations, examples, and illust
 Side Note : the original course focused on Oracle GenAI Infrastructure but i will keep it more general.
 
 Let’s get started on this exciting journey of learning and discovery!🚀🚀
+
+👉 [Chapter 1 : Introduction to LLM 🤖](./Course_Material/Chapter1.md)
