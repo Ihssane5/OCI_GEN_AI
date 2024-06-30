@@ -1,3 +1,11 @@
+.title1 {
+    color:#5C4033;
+}
+
 .underline {
-    color:#8B5A2B
+    color:#8B5A2B;
+    text-decoration: underline;
+    font-weight: 500;
+    display: inline;
+    
 }

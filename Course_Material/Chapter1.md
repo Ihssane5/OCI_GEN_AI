@@ -1,8 +1,8 @@
 
-# 1️⃣ Introduction to LLM
+#  <div class=title1> 1️⃣ Introduction to LLM</div>
 <link rel="stylesheet" href="../css/style.css">
-In this chapter we will dive into <div class="underline">the world of llm</div> starting by its definition, exploring  some of <u style="color:#D2B48C">prompting techniques</u> then we will learn about the <u >issues of prompting</u>
-and  <u style = "color:#5C4033">the training and its techniques</u> as a solution and finally  we will talk about  some related concept such as <u>decoding</u>,<u>hallucination</u> and finally <u>groundness and Attributability</u>
+In this chapter we will dive into <div class="underline">the world of llm</div> starting by its definition, exploring  some of <div class = "underline">prompting techniques</div> then we will learn about the <div class="underline" >issues of prompting</div>
+and  <div class="underline">the training and its techniques</div> as a solution and finally  we will talk about  some related concept such as <div class="underline">decoding</div>,<div class="underline">hallucination</div> and finally <div class="underline">groundness and Attributability</div>.
 
 ## LLM definition 
 LLM stands for large language model and what i want you to keep in mind the meaning of  these three words
