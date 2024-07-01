@@ -1,0 +1,4 @@
+Header Background: Primary Brown (#8B5A2B)
+Text Color: Secondary Brown (#D2B48C)
+Accents or Borders: Accent Brown (#5C4033)
+Whitespace or Background Contrast: White (#FFFFFF)
