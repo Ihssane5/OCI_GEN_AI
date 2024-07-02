@@ -9,3 +9,8 @@
     display: inline;
     
 }
+
+img {
+    display: flex;
+    justify-content: center;
+}
