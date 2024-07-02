@@ -7,10 +7,32 @@ and  <u class="underline">the training and its techniques</u> as a solution and 
 ## LLM definition 
 LLM stands for large language model and what i want you to keep in mind the meaning of  these three words:
 
-![Alt text](../images/Llm.png)
+![Alt text](../images/Llm.png)<br>
 <u class="underline">
-Large language models</u> are models that can understand and generate text using a probability distribution of words. It's fair if you wonder what a model is in the first place. We can compare a model to a representation or a schema. This model has some weights or parameters<sup id="fnref1"><a href="#fn1">1</a></sup>, and our goal in this exciting journey is to find the best weights that our model can have<sup id="fnref2"><a href="#fn2">2</a></sup>. This representation relies solely on the distribution of words.
- let's try to illustrate this:
+Large language models</u> are models that can understand and generate text using a probability distribution of words. It's fair if you wonder what a model is in the first place. We can compare a model to a representation or a schema. This model has some weights or parameters<sup id="fnref1"><a href="#fn1"> 1 </a></sup>, and our goal in this exciting journey is to find the best weights that our model can have<sup id="fnref2"><a href="#fn2"> 2 </a></sup>. This representation relies solely on the distribution of words.
+let's try to illustrate this:
+
+![Alt text](../images/proba_dist.jpg)<br>
+ the llm calculates the probability of appearance of each word present in its vocabulary and based on this distribution it gain some kind of understanding of the semantic meaning of texts, for example our model assigned a probability of O.4 and 0.3 to dog and cat respectively, with each new word we try to predict the model will calculate and assign a new probability distribution over its vocabulary.
+ 
+![Alt text](../images/proba_dist_small.png)<br>
+
+we can see clearly that the probability distribution of our model changed when we added the word small. You may notice that small animals gets higher probabilities than before, which mean they are more likely to be the suitable ones.
+
+At this stage you may notice that all the power of a llm is hidden within those distributions.
+If we can control them, change them the way we want,we ultimately end up with what we want.
+
+🤔💭 how can we change the probability  distribution over an llm vocabulary ❓
+there two ways we can change the distribution:
+- prompting
+- training
+
+in the next part we will discover what is prompting, its strategies and finally its
+limitations.
+
+
+
+
 
 ## Prompt Engineering and its Strategies
 
