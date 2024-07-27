@@ -1,31 +1,146 @@
 
-# 1️⃣ Introduction to LLM 
+# 2️⃣ OCI Gen service 
 <link rel="stylesheet" href="../css/style.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1️⃣ Introduction to LLM </title>
 </head>
-In this chapter we will dive into <u class="underline">the world of llm</u> starting by its definition, exploring  some of <u class = "underline">prompting techniques</u> then we will learn about the <u class="underline" >issues of prompting</u>
-and  <u class="underline">the training and its techniques</u> as a solution and finally  we will talk about  some related concept such as <u class="underline">decoding</u>,<u class="underline">hallucination</u> and finally <u class="underline">groundness and Attributability</u>.
 
-## LLM definition 
-LLM stands for large language model and what i want you to keep in mind the meaning of  these three words:
+Welcome to the second part of this learning journey where we are going to focus on OCI Gen Service that stands for Oracle Cloud Infrastructure Generative Service, the original course focused on Oracle's Services of generative AI but some of the concept will explored in a more broader sense.
+
+Let's try to break everything piece by piece so we can move on a solid background together👭.
+
+At this point we can have a sense of how llm are big(in term of weights ofc),how greedy they are in term of computational ressources and time those caracteristics hinder our ability to run them locally using our own devices(🤫 in fact it's not impossible but it will take a lot of time and not every devices will be suitable) 🤔 isn't problematic,there is a need,and  as you might know before “The presence of a need creates opportunities for companies to innovate and grow"
+🪄Abracadabra! 🎩✨ The <u class = "underline">The cloud</u> was born as a solution to this problem
+
+Let me explain the whole idea to you.
+
+Big tech companies such as google,oracle and others have their own datacenters(Just Imagine them as big houses where big computers soo powerful ones are hosted) we call all this connected computers and all technical details that make the computational ressources available for final users an infrastructure, and actually as a client you don't need to know all these hidden details but they generally provide an interface where you can allocate the ressources you need for your task.
+those ressources range from CPU,GPU and Memories.
+
+Hope it more clear now,now let’s return to our primary objective.
+
+Oracle as a biig company has its own cloud known as oci (Oracle Cloud Infrastructure) who provides the ressources discussed above, It support also GenAI(generative AI)
+which provide the ressources needed(dedicated AI clusters)<sup id="fnref5"><a href="#fn5">1</a></sup>
+
+
+oracle provide a range of llama and cohere models you can use from text generation,summarization to embedding models each one with some parameters you can control. let's try to get a closer look at each of them.
+
+✨ <u class='underline'>Generative Models</u>: as their name suggest they are models that are mostly performant in text generation task
+and  they come with some parameters you can choose and modify:
+- maximum output tokens
+
+the maximum number of genrated tokens(token can be a word, part of a word or a ponctuation mark)
+- temperature
+
+a parameter that control how creative the model should be and the randomness of llm output
+here i need to explain what do we mean by a creative model and how i cloud be🎨
+the model can either be deterministic or non deterministic
+determinstic models🪐 tend to apply
+ <u class='underline'>Greedy Decoding🤑</u> where the word generated is the word with the highest probability
+
+ non deterministic models🎲 tend to use some other way of decoding such as nuclus sampling,beamseach but the general idea remains the same we want to select this time the word with the lowest probability by making the distribution flattened over all worlds, which mean they appear rarely, the temperature is a parameter that can control the nature of the model.
+
+ temperature = 0 ➜ 🪐
+
+ temperature > 0 ➜ 🎲 ➜ 🎨
+
+ 
+- Top p,Top k
+
+are just other parameters you can set beside temperature  to control the output.
+- Presence,frequency and penalty
+
+they are parameters that will assign a penalty if a word appears frequently, the final result will contains less repetitive words.
+
+<u class='underline'>Frequency</u> Apply the penalty based on the  number of times a word appear in the generated text including the prompt.
+
+<u class='underline'>Presence</u>
+Apply the penalty regardless of the frequency, if a word appears just one time it gets penalyzed.
+
+-StopSequencing: is the string that tell you model to stop generating output in order to control your model output
+- Showlikelihood
+
+It's a parameter that control the token generation, all tokens are assigned a value in the range [-15,0],
+the ones with the highest number are mostly likely to follow the current token.
+
+
+✨ <u class='underline'>Summarization Models</u>: using the same text generation models we can now summarize but using differents parameters:
+
+- temperature
+
+- length
+
+Approximative length of the summary(short,medium,long)
+
+- format
+
+Control the display of the summary(bullet point or free form paragraph)
+
+- extractiveness: 
+
+It control how much to reuse the input in the generated summary
+
+⬆️  higher values mean that the model will use the words that already exist in the sentence.
+
+⬇️ lower ones mean that the model will try to paraphrase.
+
+Let’s shift our focus to the final model
+
+✨ <u class='underline'>Embedding Models</u>:
+Embedding mean actually transforming  text to numerical representation but why🤷‍♂️? 
+because
+
+👉 computers and models can only handle numerical representations 
+👉 we can capture properties of words
+👉 we can evaluate semantic similarities
+
+
+I know it's start to get foggy with new words and concepts and as usually let's break down to small chunks we can handle 🤹🏻
+
+when we refer to the term word embeddings it's as i said before transforming word to vector, If  you are not familiar with vectors
+
+here is a quick math course 𝞹📈🧠📚
+
+
+ 
 
 <img>![Alt text](../images/chap1/Llm.png)</img><br>
-<u class="underline">
-Large language models</u> are models that can understand and generate text using a probability distribution of words. It's fair if you wonder what a model is in the first place. We can compare a model to a representation or a schema. This model has some weights or parameters<sup id="fnref1"><a href="#fn1"> 1  </a></sup>, and our goal in this exciting journey is to find the best weights that our model can have<sup id="fnref2"><a href="#fn2"> 2 </a></sup>. This representation relies solely on the distribution of words.
-let's try to illustrate this:
 
-![Alt text](../images/chap1/proba_dist.jpg)<br>
- the llm calculates the probability of appearance of each word present in its vocabulary and based on this distribution it gain some kind of understanding of the semantic meaning of texts, for example our model assigned a probability of O.4 and 0.3 to dog and cat respectively, with each new word we try to predict the model will calculate and assign a new probability distribution over its vocabulary.
- 
-![Alt text](../images/chap1/proba_dist_small.png)<br>
 
-we can see clearly that the probability distribution of our model changed when we added the word small. You may notice that small animals gets higher probabilities than before, which mean they are more likely to be the suitable ones.
+Okey but how vectors are soo useful and how they encapsulate all those details, in fact for the word puppy and its embedding which is in our case                each component of the vectors represent a caracteristic for example the first one represent the size, the second one the age etc,now you can clearly see how word embedding capture the properties of words, moving no to the third point which semantic and this is the rule
+📜 ❝Words with similar meanings will have similar vectors.❞ make sense,isn't but how can we measure this semantic similarity we use cosine or dot procut, wait a minute i will bring my board 👨🏻‍🏫.
 
-At this stage you may notice that all the power of a llm is hidden within those distributions.
-If we can control them, change them the way we want,we ultimately end up with what we want.
+
+
+
+
+
+
+All what we just seen is illustrated in this picture.
+
+<img>![Alt text](../images/chap2/word_embed.png)</img><br>
+
+
+📜 ❝The true importance of anything is best demonstrated through its use cases and applications❞ 
+
+embeddings have several use cases:
+
+👉 translation which is actually sentence to sentence generation,at this stage I want you to keep in mind that  there is some techniques that help the model understant and  generate text with multiple languages.
+
+👉 RAG(Retrieval Augmented Generation) We encountered this word earlier can you remember where exactly, close your eyes 🫣 and try to recall where exactly,
+open your eye 😀 and 
+Let me give the answer
+
+we discussed RAG as a technique used to reduce hallucinations in llm(🥺 it's completly fine if you can't get it right), I promess that we will go into more details later on,now  I fulfill what I promised.
+
+now suppose that you have a company that sell clothes and you want to ensure an online presence so you decided to build your own website, and because answering the questions of your clients is a primary preoccupation for your company, 
+
+
+
+
+
 
 🤔💭 how can we change the probability  distribution over an llm vocabulary❓<br>
 there two ways we can change the distribution:
@@ -213,7 +328,7 @@ The journey continues, and the best is yet to come.
 
 
 <ol>
-    <li id="fn1">Weights or parameters are the values that the model adjusts during training to minimize error and improve accuracy. It has billions of them, which makes it a large model. <a href="#fnref1">↩</a></li>
+    <li id="fn1">you can define a cluster as a part of the infrastructure. In computing, a cluster refers to a group of interconnected computers (or nodes) that work together to perform tasks as if they were a single system<a href="#fnref1">↩</a></li>
     <li id="fn2">The best weights are those that allow the model to make the most accurate predictions or generate the most coherent text. For more details, check the architecture of large language models (LLM). <a href="#fnref2">↩</a></li>
     <li id="fn3">Those definition were provided within the original course <a href="#fnref3">↩</a></li>
     <li id="fn4">This illustration  and other informations were taken from this article<a href="https://towardsdatascience.com/in-context-learning-approaches-in-large-language-models-9c0c53b116a1">↩</a></li>
