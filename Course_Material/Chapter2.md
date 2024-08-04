@@ -146,7 +146,7 @@ I know new formula and expression let's try to dive deeper into each one  of the
 find the dot product of vector vec{OA}  and  vector {OB} in our example.
 😉(hint) try to find the OA and OB coordinates before tackling the task
 
-- Cosine of the angle between two vectors: the second formula comes handy for doing so, but wait a minute what's the || || symbole, actually it's the length of a vector and it's calculated using the last formula
+- Cosine of the angle between two vectors: the second formula comes handy for doing so, but wait a minute what's the '||' '||' symbole, actually it's the length of a vector and it's calculated using the last formula
 
 💪 challenging task:
 
